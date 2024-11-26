@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import Button from '../../components/Button.vue'
+import Button from '../../components/MyButton.vue'
 
 const meta: Meta<typeof Button> = {
   component: Button,
