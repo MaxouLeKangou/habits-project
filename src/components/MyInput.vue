@@ -8,7 +8,7 @@
       :disabled="disabled"
       class="input"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event?.target?.value)"
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       :class="{
         '-full': size === 'full',
       }"
@@ -56,9 +56,9 @@
 </style>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { defineProps } from 'vue'
 
-const props = defineProps<{
+defineProps<{
   size?: string
   label: string
   type: string

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import MyForm from '../../components/layout/MyForm.vue'
+import MyForm from '@/components/layout/MyForm.vue'
 
 const meta: Meta<typeof MyForm> = {
   component: MyForm,

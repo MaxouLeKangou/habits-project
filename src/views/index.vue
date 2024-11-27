@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-import MyForm from '../../components/layout/MyForm.vue'
+import MyForm from '@/components/layout/MyForm.vue'
 </script>
