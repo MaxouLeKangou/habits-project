@@ -1,15 +1,11 @@
 <template>
   <div>
-    <MyButton label="coucou" variant="primary" />
-    <MyInput type="text" placeholder="Enter your name" :modelValue="inputValue" />
+    <!-- <MyButton label="coucou" variant="primary" />
+    <MyInput label="Email" type="email" placeholder="Enter your email" :modelValue="inputValue" /> -->
+    <MyForm type="signup" />
   </div>
 </template>
 
 <script setup lang="ts">
-import MyButton from '../../components/MyButton.vue'
-import MyInput from '../../components/MyInput.vue'
-
-import { ref } from 'vue'
-
-const inputValue = ref()
+import MyForm from '@/components/layout/MyForm.vue'
 </script>
