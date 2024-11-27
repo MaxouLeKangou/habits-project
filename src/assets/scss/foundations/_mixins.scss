@@ -1,6 +1,8 @@
-@mixin font-size($size, $line-height: "auto") {
-    font-size: rem($size);
-    @if $line-height != "auto" {
-        line-height: $line-height;
-    }
+@use './functions' as *;
+
+@mixin font-size($size, $line-height: 'auto') {
+  font-size: rem($size);
+  @if $line-height != 'auto' {
+    line-height: $line-height;
+  }
 }
