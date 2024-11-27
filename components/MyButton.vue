@@ -1,5 +1,13 @@
 <template>
-  <button class="button" :class="{ '-outline': variant === 'outline' }" :disabled="disabled">
+  <button
+    class="button"
+    :class="{
+      '-outline': variant === 'outline',
+      '-full': size === 'full',
+      '-small': size === 'small',
+    }"
+    :disabled="disabled"
+  >
     {{ label }}
   </button>
 </template>
@@ -9,6 +17,7 @@ import { defineProps } from 'vue'
 
 defineProps<{
   label: string
+  size?: string
   disabled?: boolean
   variant?: 'primary' | 'outline'
 }>()
@@ -62,6 +71,7 @@ defineProps<{
 
   &.-full {
     width: 100%;
+    max-width: rem(520px);
   }
 }
 </style>

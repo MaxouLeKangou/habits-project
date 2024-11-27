@@ -1,15 +1,25 @@
 <template>
-  <input
-    :type="type"
-    :placeholder="placeholder"
-    :disabled="disabled"
-    class="input"
-    v-model="inputValue"
-    @input="$emit('update:modelValue', $event?.target)"
-  />
+  <div>
+    <label :for="label" class="input__label">{{ label }}</label>
+    <input
+      :id="label"
+      :type="type"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      class="input"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event?.target?.value)"
+      :class="{
+        '-full': size === 'full',
+      }"
+    />
+  </div>
 </template>
 
 <style lang="scss">
+.input__label {
+  @include sr-only();
+}
 .input {
   display: inline-block;
   background: transparent;
@@ -40,6 +50,7 @@
 
   &.-full {
     width: 100%;
+    max-width: rem(520px);
   }
 }
 </style>
@@ -48,13 +59,13 @@
 import { defineProps, ref } from 'vue'
 
 const props = defineProps<{
+  size?: string
+  label: string
   type: string
   disabled?: boolean
   placeholder?: string
   modelValue: string
 }>()
-
-const inputValue = ref(props.modelValue)
 
 defineEmits(['update:modelValue'])
 </script>
