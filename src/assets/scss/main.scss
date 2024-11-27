@@ -1,19 +1,18 @@
 // foundations
-@use "foundations/variables";
-@use "foundations/functions";
-@use "foundations/mixins";
-@use "foundations/normalize";
+// @use 'foundations/variables';
+// @use 'foundations/functions';
+// @use 'foundations/mixins';
+// @use 'foundations/normalize';
 
 // elements
-@use "elements/button";
-@use "elements/input";
+// @use 'elements/button';
+// @use 'elements/input';
 
 // components
 // @use "components/nav";
 // @use "components/item";
 
 body {
-    padding: 1rem;
-    font-family: "Inter", sans-serif;;
-    @include font-size(16px, 1.5);
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
 }

@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :class="{ '-outline': variant === 'outline', '-disabled': disabled }">
+  <button class="button" :class="{ '-outline': variant === 'outline' }" :disabled="disabled">
     {{ label }}
   </button>
 </template>
@@ -16,6 +16,7 @@ defineProps<{
 
 <style lang="scss">
 .button {
+  $self: &;
   background: $primary-base;
   color: $sky-white;
   padding: rem(16px) rem(32px);
@@ -48,7 +49,7 @@ defineProps<{
     }
   }
 
-  &.-disabled {
+  &:disabled {
     color: $sky-dark;
     background: $sky-light;
     border-color: $sky-light;
