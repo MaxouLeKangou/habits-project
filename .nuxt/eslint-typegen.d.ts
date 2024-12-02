@@ -2654,7 +2654,7 @@ export interface RuleOptions {
    */
   'vue/jsx-uses-vars'?: Linter.RuleEntry<[]>
   /**
-   * Enforce consistent spacing between keys and values in object literal properties in `<template>`
+   * Enforce consistent spacing between property names and type annotations in types and interfaces in `<template>`
    * @see https://eslint.vuejs.org/rules/key-spacing.html
    */
   'vue/key-spacing'?: Linter.RuleEntry<VueKeySpacing>
@@ -3347,7 +3347,7 @@ export interface RuleOptions {
    */
   'vue/prop-name-casing'?: Linter.RuleEntry<VuePropNameCasing>
   /**
-   * Require quotes around object literal property names in `<template>`
+   * Require quotes around object literal, type literal, interfaces and enums property names in `<template>`
    * @see https://eslint.vuejs.org/rules/quote-props.html
    */
   'vue/quote-props'?: Linter.RuleEntry<VueQuoteProps>
@@ -6520,6 +6520,7 @@ type VueArrayElementNewline = []|[(_VueArrayElementNewlineBasicConfig | {
   ArrayPattern?: _VueArrayElementNewlineBasicConfig
 })]
 type _VueArrayElementNewlineBasicConfig = (("always" | "never" | "consistent") | {
+  consistent?: boolean
   multiline?: boolean
   minItems?: (number | null)
 })
@@ -6588,9 +6589,14 @@ type VueCommaDangle = []|[(_VueCommaDangleValue | {
   imports?: _VueCommaDangleValueWithIgnore
   exports?: _VueCommaDangleValueWithIgnore
   functions?: _VueCommaDangleValueWithIgnore
+  importAttributes?: _VueCommaDangleValueWithIgnore
+  dynamicImports?: _VueCommaDangleValueWithIgnore
+  enums?: _VueCommaDangleValueWithIgnore
+  generics?: _VueCommaDangleValueWithIgnore
+  tuples?: _VueCommaDangleValueWithIgnore
 })]
 type _VueCommaDangleValue = ("always-multiline" | "always" | "never" | "only-multiline")
-type _VueCommaDangleValueWithIgnore = ("always-multiline" | "always" | "ignore" | "never" | "only-multiline")
+type _VueCommaDangleValueWithIgnore = ("always-multiline" | "always" | "never" | "only-multiline" | "ignore")
 // ----- vue/comma-spacing -----
 type VueCommaSpacing = []|[{
   before?: boolean
@@ -6661,6 +6667,10 @@ type VueFirstAttributeLinebreak = []|[{
 // ----- vue/func-call-spacing -----
 type VueFuncCallSpacing = ([]|["never"] | []|["always"]|["always", {
   allowNewlines?: boolean
+  optionalChain?: {
+    before?: boolean
+    after?: boolean
+  }
 }])
 // ----- vue/html-button-has-type -----
 type VueHtmlButtonHasType = []|[{
@@ -6978,6 +6988,10 @@ type VueKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    satisfies?: {
+      before?: boolean
+      after?: boolean
+    }
     set?: {
       before?: boolean
       after?: boolean
@@ -7051,6 +7065,10 @@ type VueKeywordSpacing = []|[{
       after?: boolean
     }
     yield?: {
+      before?: boolean
+      after?: boolean
+    }
+    type?: {
       before?: boolean
       after?: boolean
     }
@@ -7182,7 +7200,10 @@ type VueMultilineHtmlElementContentNewline = []|[{
   allowEmptyLines?: boolean
 }]
 // ----- vue/multiline-ternary -----
-type VueMultilineTernary = []|[("always" | "always-multiline" | "never")]
+type VueMultilineTernary = []|[("always" | "always-multiline" | "never")]|[("always" | "always-multiline" | "never"), {
+  ignoreJSX?: boolean
+  [k: string]: unknown | undefined
+}]
 // ----- vue/mustache-interpolation-spacing -----
 type VueMustacheInterpolationSpacing = []|[("always" | "never")]
 // ----- vue/new-line-between-multi-line-property -----
@@ -7499,6 +7520,16 @@ type VueObjectCurlyNewline = []|[((("always" | "never") | {
     minProperties?: number
     consistent?: boolean
   })
+  TSTypeLiteral?: (("always" | "never") | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
+  TSInterfaceBody?: (("always" | "never") | {
+    multiline?: boolean
+    minProperties?: number
+    consistent?: boolean
+  })
 })]
 // ----- vue/object-curly-spacing -----
 type VueObjectCurlySpacing = []|[("always" | "never")]|[("always" | "never"), {
@@ -7520,7 +7551,7 @@ type VueObjectShorthand = ([]|[("always" | "methods" | "properties" | "never" | 
   avoidExplicitReturnArrows?: boolean
 }])
 // ----- vue/operator-linebreak -----
-type VueOperatorLinebreak = []|[("after" | "before" | "none" | null)]|[("after" | "before" | "none" | null), {
+type VueOperatorLinebreak = []|[(("after" | "before" | "none") | null)]|[(("after" | "before" | "none") | null), {
   overrides?: {
     [k: string]: ("after" | "before" | "none" | "ignore") | undefined
   }
