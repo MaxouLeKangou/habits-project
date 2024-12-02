@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <MyButton label="coucou" />
-  </div>
+  <NuxtPage/>
 </template>
