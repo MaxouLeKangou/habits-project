@@ -8,13 +8,28 @@
       :disabled="disabled"
       class="input"
       :value="modelValue"
-      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       :class="{
         '-full': size === 'full',
       }"
-    />
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    >
   </div>
 </template>
+
+<script setup lang="ts">
+import { defineProps } from 'vue'
+
+defineProps<{
+  size?: string
+  label: string
+  type: string
+  disabled?: boolean
+  placeholder?: string
+  modelValue: string
+}>()
+
+defineEmits(['update:modelValue'])
+</script>
 
 <style lang="scss">
 .input__label {
@@ -54,18 +69,3 @@
   }
 }
 </style>
-
-<script setup lang="ts">
-import { defineProps } from 'vue'
-
-defineProps<{
-  size?: string
-  label: string
-  type: string
-  disabled?: boolean
-  placeholder?: string
-  modelValue: string
-}>()
-
-defineEmits(['update:modelValue'])
-</script>
