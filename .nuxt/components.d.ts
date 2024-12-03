@@ -2,9 +2,13 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'MyButton': typeof import("../components/MyButton.vue")['default']
+      'Header': typeof import("../components/Header.vue")['default']
+    'MyButton': typeof import("../components/MyButton.vue")['default']
     'MyInput': typeof import("../components/MyInput.vue")['default']
     'LayoutMyForm': typeof import("../components/layout/MyForm.vue")['default']
+    'SanityContent': typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-content")['default']
+    'SanityFile': typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-file")['default']
+    'SanityImage': typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-image")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -28,9 +32,13 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyMyButton': typeof import("../components/MyButton.vue")['default']
+      'LazyHeader': typeof import("../components/Header.vue")['default']
+    'LazyMyButton': typeof import("../components/MyButton.vue")['default']
     'LazyMyInput': typeof import("../components/MyInput.vue")['default']
     'LazyLayoutMyForm': typeof import("../components/layout/MyForm.vue")['default']
+    'LazySanityContent': typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-content")['default']
+    'LazySanityFile': typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-file")['default']
+    'LazySanityImage': typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-image")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'LazyNuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -60,9 +68,13 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const Header: typeof import("../components/Header.vue")['default']
 export const MyButton: typeof import("../components/MyButton.vue")['default']
 export const MyInput: typeof import("../components/MyInput.vue")['default']
 export const LayoutMyForm: typeof import("../components/layout/MyForm.vue")['default']
+export const SanityContent: typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-content")['default']
+export const SanityFile: typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-file")['default']
+export const SanityImage: typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-image")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -86,9 +98,13 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyHeader: typeof import("../components/Header.vue")['default']
 export const LazyMyButton: typeof import("../components/MyButton.vue")['default']
 export const LazyMyInput: typeof import("../components/MyInput.vue")['default']
 export const LazyLayoutMyForm: typeof import("../components/layout/MyForm.vue")['default']
+export const LazySanityContent: typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-content")['default']
+export const LazySanityFile: typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-file")['default']
+export const LazySanityImage: typeof import("../node_modules/@nuxtjs/sanity/dist/runtime/components/sanity-image")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const LazyNuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const LazyNuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']

@@ -19,6 +19,7 @@ declare global {
   const createEvent: typeof import('../../node_modules/h3')['createEvent']
   const createEventStream: typeof import('../../node_modules/h3')['createEventStream']
   const createRouter: typeof import('../../node_modules/h3')['createRouter']
+  const createSanityClient: typeof import('#sanity-client')['createClient']
   const defaultContentType: typeof import('../../node_modules/h3')['defaultContentType']
   const defineAppConfig: typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/config')['defineAppConfig']
   const defineCachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache')['defineCachedEventHandler']
@@ -68,6 +69,7 @@ declare global {
   const getSession: typeof import('../../node_modules/h3')['getSession']
   const getValidatedQuery: typeof import('../../node_modules/h3')['getValidatedQuery']
   const getValidatedRouterParams: typeof import('../../node_modules/h3')['getValidatedRouterParams']
+  const groq: typeof import('../../node_modules/@nuxtjs/sanity/dist/runtime/groq')['groq']
   const handleCacheHeaders: typeof import('../../node_modules/h3')['handleCacheHeaders']
   const handleCors: typeof import('../../node_modules/h3')['handleCors']
   const isCorsOriginAllowed: typeof import('../../node_modules/h3')['isCorsOriginAllowed']
@@ -121,10 +123,14 @@ declare global {
   const useEvent: typeof import('../../node_modules/nitropack/dist/runtime/internal/context')['useEvent']
   const useNitroApp: typeof import('../../node_modules/nitropack/dist/runtime/internal/app')['useNitroApp']
   const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config')['useRuntimeConfig']
+  const useSanity: typeof import('../../node_modules/@nuxtjs/sanity/dist/runtime/server/utils/index')['useSanity']
   const useSession: typeof import('../../node_modules/h3')['useSession']
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage')['useStorage']
   const writeEarlyHints: typeof import('../../node_modules/h3')['writeEarlyHints']
 }
+export { createClient as createSanityClient } from '#sanity-client';
+export { useSanity } from '../../node_modules/@nuxtjs/sanity/dist/runtime/server/utils/index';
+export { groq } from '../../node_modules/@nuxtjs/sanity/dist/runtime/groq';
 export { useNitroApp } from 'nitropack/runtime/internal/app';
 export { useRuntimeConfig, useAppConfig } from 'nitropack/runtime/internal/config';
 export { defineNitroPlugin, nitroPlugin } from 'nitropack/runtime/internal/plugin';

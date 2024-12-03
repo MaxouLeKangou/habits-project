@@ -32,6 +32,12 @@
         "../*",
         "../*"
       ],
+      "#sanity-client": [
+        "../node_modules/@sanity/client/dist/index"
+      ],
+      "#sanity-composables": [
+        "../node_modules/@nuxtjs/sanity/dist/runtime/composables/index"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -120,6 +126,7 @@
   "include": [
     "./types/nitro-nuxt.d.ts",
     "../node_modules/@nuxt/eslint/runtime/server",
+    "../node_modules/@nuxtjs/sanity/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",
