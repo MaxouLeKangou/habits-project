@@ -102,7 +102,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/a23c2166-b4c2-4386-9ea5-8203bad7c7af.json"
+        "./manifest/meta/dev"
       ],
       "#sanity-client": [
         "../node_modules/@sanity/client/dist/index"

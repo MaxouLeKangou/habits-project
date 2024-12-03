@@ -14,6 +14,11 @@ const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]`;
 const route = useRoute();
 
 const { data: post } = await useSanityQuery<SanityDocument>(POST_QUERY, { slug: route.params.slug });
+
+if(!post.value) {
+	throw createError({ statusCode: 404, message: "Post not found" });
+}
+
 // const { projectId, dataset } = useSanity().client.config();
 // const urlFor = (source: SanityImageSource) =>
 //   projectId && dataset
