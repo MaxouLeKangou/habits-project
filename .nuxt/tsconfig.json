@@ -102,7 +102,13 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/17a8cb57-559d-4339-8b4d-309ae8dc5101.json"
+        "./manifest/meta/a23c2166-b4c2-4386-9ea5-8203bad7c7af.json"
+      ],
+      "#sanity-client": [
+        "../node_modules/@sanity/client/dist/index"
+      ],
+      "#sanity-composables": [
+        "../node_modules/@nuxtjs/sanity/dist/runtime/composables/index"
       ],
       "#components": [
         "./components"
@@ -142,6 +148,8 @@
     "../**/*",
     "../node_modules/@nuxt/eslint/runtime",
     "../node_modules/@nuxt/eslint/dist/runtime",
+    "../node_modules/@nuxtjs/sanity/runtime",
+    "../node_modules/@nuxtjs/sanity/dist/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/devtools/dist/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
@@ -154,6 +162,8 @@
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxt/eslint/runtime/server",
     "../node_modules/@nuxt/eslint/dist/runtime/server",
+    "../node_modules/@nuxtjs/sanity/runtime/server",
+    "../node_modules/@nuxtjs/sanity/dist/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
