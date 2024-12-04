@@ -31,4 +31,5 @@ export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerS
 export { createClient as createSanityClient } from '#build/sanity-client.mjs';
 export { groq } from '../node_modules/@nuxtjs/sanity/dist/runtime/groq';
 export { useSanity, useLazySanityQuery, useSanityQuery } from '../node_modules/@nuxtjs/sanity/dist/runtime/composables/index';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
