@@ -47,7 +47,7 @@ const paginationStart = computed(() => (page.value - 1) * perPage);
 const paginationEnd = computed(() => page.value * perPage);
 
 const filter = ref('');
-function onCategoryChange(category) {
+function onCategoryChange(category: SanityDocument) {
 	page.value = 1;
 	filter.value = category.slug.current;
 }
@@ -56,7 +56,7 @@ const { data: categories } = await useSanityQuery<SanityDocument[]>(groq`*[
 	_type == "category"
 	&& defined(slug.current)]`);
 
-const { data: totalPosts } = await useSanityQuery<{ count: number }>(
+const { data: totalPosts } = await useSanityQuery<number>(
 	groq`count(*[
 		_type == "post"
 		&& defined(slug.current)
