@@ -1,5 +1,6 @@
 <template>
 	<div v-if="post">
+		<p v-for="category of post.categories" :key="category.id">{{ category }}</p>
 		<SanityImage :asset-id="post.image.asset._ref" class="blog__img" />
 		<SanityContent :blocks="post.body" />
 	</div>
