@@ -19,6 +19,7 @@
     "@sanity/image-url": "^1.1.0",
     "eslint": "^9.16.0",
     "nuxt": "^3.14.1592",
+    "sanity": "^3.66.1",
     "vue": "latest",
     "vue-router": "latest"
   },
