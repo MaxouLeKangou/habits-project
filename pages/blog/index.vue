@@ -95,6 +95,11 @@ const urlFor = (source: SanityImageSource) =>
 	? imageUrlBuilder({ projectId, dataset }).image(source)
 	: null;
 
+useSeoMeta({
+	title: 'Blog',
+	description: 'Découvrez tous les articles de notre blog',
+	ogImage: '/img/meta-image.png',
+});
 </script>
 
 <style lang="scss">
