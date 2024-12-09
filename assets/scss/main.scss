@@ -15,4 +15,65 @@
 body {
   margin: 0 rem(20px);
   font-family: 'Inter', sans-serif;
+  background-color: $sky-white;
+  color: $lnk-darkest;
+}
+
+
+// AUTH
+$spacing-lg: rem(40px);
+$spacing-md: rem(20px);
+$spacing-sm: rem(10px);
+
+$font-size-title: rem(24px);
+
+.auth {
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		height: 100vh;
+		gap: $spacing-md;
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			gap: $spacing-md;
+		}
+	}
+
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-sm;
+		margin-top: $spacing-lg;
+	}
+
+	&__terms {
+		font-size: rem(12px);
+	}
+
+	&__link {
+		color: $primary-base;
+		font-size: rem(14px);
+
+		&.-end {
+			text-align: end;
+		}
+		&.-center {
+			text-align: center;
+		}
+	}
+
+	&__submit {
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+
+		.auth__link {
+			margin: $spacing-lg 0;
+		}
+	}
 }
