@@ -1,5 +1,7 @@
 <template>
-  <button
+  <component 
+    :is="typeComponent"
+    :to="props.type === 'NuxtLink' ?? link"
     class="button"
     :class="{
       '-outline': variant === 'outline',
@@ -9,18 +11,36 @@
     :disabled="disabled"
   >
     {{ label }}
-  </button>
+  </component>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   label: string
   size?: string
   disabled?: boolean
   variant?: 'primary' | 'outline'
+  type: {
+    type: 'button' | 'NuxtLink'
+    default: 'button'
+  }
+  link?: string
 }>()
+
+const typeComponent = (() => {
+    switch (props.type) {
+        case 'button':
+            return 'button';
+
+        case 'NuxtLink':
+            return resolveComponent('NuxtLink');
+			
+        default:
+            return 'button';
+    }
+})();
 </script>
 
 <style lang="scss">
