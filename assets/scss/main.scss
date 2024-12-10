@@ -2,7 +2,7 @@
 // @use 'foundations/variables';
 // @use 'foundations/functions';
 // @use 'foundations/mixins';
-@use 'foundations/normalize';
+// @use 'foundations/normalize';
 
 // elements
 // @use 'elements/button';
@@ -12,13 +12,25 @@
 // @use "components/nav";
 // @use "components/item";
 
-body {
-  margin: 0 rem(20px);
+html {
   font-family: 'Inter', sans-serif;
   background-color: $sky-white;
   color: $lnk-darkest;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 rem(20px);
+}
 
 // AUTH
 $spacing-lg: rem(40px);
