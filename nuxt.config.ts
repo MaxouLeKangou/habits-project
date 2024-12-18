@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', "@nuxtjs/sanity"],
 
+  runtimeConfig: {
+    public: {
+      apiTrackingBaseUrl: process.env.NUXT_PUBLIC_API_TRACKING_BASE_URL || '',
+    }
+  },
+
   sanity: {
     projectId: "uwfz7mwm",
     dataset: "production",
@@ -15,6 +21,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
+            @use "@/assets/scss/foundations/normalize" as *;
             @use "@/assets/scss/foundations/variables" as *;
             @use "@/assets/scss/foundations/functions" as *;
             @use "@/assets/scss/foundations/mixins" as *;
