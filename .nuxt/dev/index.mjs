@@ -706,6 +706,7 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
+    "apiTrackingBaseUrl": "http://localhost:4000",
     "sanity": {
       "additionalClients": {},
       "apiVersion": "1",

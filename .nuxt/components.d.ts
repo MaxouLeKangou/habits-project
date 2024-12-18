@@ -2,7 +2,12 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'Header': typeof import("../components/Header.vue")['default']
+      'AddHabitForm': typeof import("../components/AddHabitForm.vue")['default']
+    'BlocHero': typeof import("../components/Bloc/Hero.vue")['default']
+    'CardFeature': typeof import("../components/Card/Feature.vue")['default']
+    'CardReview': typeof import("../components/Card/Review.vue")['default']
+    'CardStat': typeof import("../components/Card/Stat.vue")['default']
+    'Header': typeof import("../components/Header.vue")['default']
     'MyButton': typeof import("../components/MyButton.vue")['default']
     'MyInput': typeof import("../components/MyInput.vue")['default']
     'LayoutMyForm': typeof import("../components/layout/MyForm.vue")['default']
@@ -32,7 +37,12 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyHeader': typeof import("../components/Header.vue")['default']
+      'LazyAddHabitForm': typeof import("../components/AddHabitForm.vue")['default']
+    'LazyBlocHero': typeof import("../components/Bloc/Hero.vue")['default']
+    'LazyCardFeature': typeof import("../components/Card/Feature.vue")['default']
+    'LazyCardReview': typeof import("../components/Card/Review.vue")['default']
+    'LazyCardStat': typeof import("../components/Card/Stat.vue")['default']
+    'LazyHeader': typeof import("../components/Header.vue")['default']
     'LazyMyButton': typeof import("../components/MyButton.vue")['default']
     'LazyMyInput': typeof import("../components/MyInput.vue")['default']
     'LazyLayoutMyForm': typeof import("../components/layout/MyForm.vue")['default']
@@ -68,6 +78,11 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const AddHabitForm: typeof import("../components/AddHabitForm.vue")['default']
+export const BlocHero: typeof import("../components/Bloc/Hero.vue")['default']
+export const CardFeature: typeof import("../components/Card/Feature.vue")['default']
+export const CardReview: typeof import("../components/Card/Review.vue")['default']
+export const CardStat: typeof import("../components/Card/Stat.vue")['default']
 export const Header: typeof import("../components/Header.vue")['default']
 export const MyButton: typeof import("../components/MyButton.vue")['default']
 export const MyInput: typeof import("../components/MyInput.vue")['default']
@@ -98,6 +113,11 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyAddHabitForm: typeof import("../components/AddHabitForm.vue")['default']
+export const LazyBlocHero: typeof import("../components/Bloc/Hero.vue")['default']
+export const LazyCardFeature: typeof import("../components/Card/Feature.vue")['default']
+export const LazyCardReview: typeof import("../components/Card/Review.vue")['default']
+export const LazyCardStat: typeof import("../components/Card/Stat.vue")['default']
 export const LazyHeader: typeof import("../components/Header.vue")['default']
 export const LazyMyButton: typeof import("../components/MyButton.vue")['default']
 export const LazyMyInput: typeof import("../components/MyInput.vue")['default']
