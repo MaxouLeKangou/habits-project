@@ -16,7 +16,11 @@
 defineProps<{
 	title: string
 	text: string
-	icon: string
+	icon: {
+		asset: {
+			_ref: string
+		}
+	}
 }>()
 
 // const { getImage } = useSanityImage()

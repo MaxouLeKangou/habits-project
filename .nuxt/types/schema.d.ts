@@ -104,6 +104,8 @@ declare module 'nuxt/schema' {
    },
   }
   interface PublicRuntimeConfig {
+   apiTrackingBaseUrl: string,
+
    sanity: {
       additionalClients: any,
 

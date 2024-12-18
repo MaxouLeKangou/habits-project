@@ -1,7 +1,7 @@
 <template>
   <component 
     :is="typeComponent"
-    :to="props.type === 'NuxtLink' ?? link"
+    :to="props.type === 'NuxtLink' ? link : undefined"
     class="button"
     :class="{
       '-outline': variant === 'outline',
@@ -22,10 +22,7 @@ const props = defineProps<{
   size?: string
   disabled?: boolean
   variant?: 'primary' | 'outline'
-  type: {
-    type: 'button' | 'NuxtLink'
-    default: 'button'
-  }
+  type: 'button' | 'NuxtLink' | 'submit'
   link?: string
 }>()
 

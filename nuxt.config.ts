@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', "@nuxtjs/sanity"],
 
+  runtimeConfig: {
+    public: {
+      apiTrackingBaseUrl: process.env.NUXT_PUBLIC_API_TRACKING_BASE_URL || '',
+    }
+  },
+
   sanity: {
     projectId: "uwfz7mwm",
     dataset: "production",

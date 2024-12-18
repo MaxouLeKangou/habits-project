@@ -12,7 +12,7 @@
 defineProps<{
 	title: string
 	text: string
-	links: object
+	links: { _key: string, url: string, label: string }[]
 }>()
 </script>
 
