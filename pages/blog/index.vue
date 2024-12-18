@@ -103,29 +103,29 @@ useSeoMeta({
 </script>
 
 <style lang="scss">
-.blog {
-	&__img {
-		width: 100px;
-		height: auto;
-	}
-	&__categories {
-		display: flex;
-		gap: 1rem;
-	}
-	&__category {
-		display: inline-block;
-		background-color: rgba($primary-base, 0.1);
-		color: $primary-dark;
-		border: 1px solid rgba($primary-base, 0.3);
-		padding: 0.5rem 1rem;
-		border-radius: 5rem;
-		&.-is-active {
-			background-color: $primary-base;
-			color: white;
-		}
-		&.-select {
-			background: rgba(0,0,0, 0.5);
-		}
-	}
-}
+// .blog {
+// 	&__img {
+// 		width: 100px;
+// 		height: auto;
+// 	}
+// 	&__categories {
+// 		display: flex;
+// 		gap: 1rem;
+// 	}
+// 	&__category {
+// 		display: inline-block;
+// 		background-color: rgba($primary-base, 0.1);
+// 		color: $primary-dark;
+// 		border: 1px solid rgba($primary-base, 0.3);
+// 		padding: 0.5rem 1rem;
+// 		border-radius: 5rem;
+// 		&.-is-active {
+// 			background-color: $primary-base;
+// 			color: white;
+// 		}
+// 		&.-select {
+// 			background: rgba(0,0,0, 0.5);
+// 		}
+// 	}
+// }
 </style>
