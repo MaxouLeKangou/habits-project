@@ -1,29 +1,7 @@
-// foundations
-// @use 'foundations/variables';
-// @use 'foundations/functions';
-// @use 'foundations/mixins';
-// @use 'foundations/normalize';
-
-// elements
-// @use 'elements/button';
-// @use 'elements/input';
-
-// components
-// @use "components/nav";
-// @use "components/item";
-
 html {
-  font-family: 'Inter', sans-serif;
-  background-color: $sky-white;
-  color: $lnk-darkest;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
-
-p {
-	margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: $dark-100;
+  color: $light-100;
 }
 
 .container {
@@ -33,59 +11,59 @@ p {
 }
 
 // AUTH
-$spacing-lg: rem(40px);
-$spacing-md: rem(20px);
-$spacing-sm: rem(10px);
+// $spacing-lg: rem(40px);
+// $spacing-md: rem(20px);
+// $spacing-sm: rem(10px);
 
-$font-size-title: rem(24px);
+// $font-size-title: rem(24px);
 
-.auth {
+// .auth {
 
-	&__form {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		width: 100%;
-		height: 100vh;
-		gap: $spacing-md;
+// 	&__form {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: space-between;
+// 		width: 100%;
+// 		height: 100vh;
+// 		gap: $spacing-md;
 
-		&__content {
-			display: flex;
-			flex-direction: column;
-			gap: $spacing-md;
-		}
-	}
+// 		&__content {
+// 			display: flex;
+// 			flex-direction: column;
+// 			gap: $spacing-md;
+// 		}
+// 	}
 
-	&__fieldset {
-		display: flex;
-		flex-direction: column;
-		gap: $spacing-sm;
-		margin-top: $spacing-lg;
-	}
+// 	&__fieldset {
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: $spacing-sm;
+// 		margin-top: $spacing-lg;
+// 	}
 
-	&__terms {
-		font-size: rem(12px);
-	}
+// 	&__terms {
+// 		font-size: rem(12px);
+// 	}
 
-	&__link {
-		color: $primary-base;
-		font-size: rem(14px);
+// 	&__link {
+// 		color: $primary-base;
+// 		font-size: rem(14px);
 
-		&.-end {
-			text-align: end;
-		}
-		&.-center {
-			text-align: center;
-		}
-	}
+// 		&.-end {
+// 			text-align: end;
+// 		}
+// 		&.-center {
+// 			text-align: center;
+// 		}
+// 	}
 
-	&__submit {
-		display: flex;
-		flex-direction: column;
-		justify-content: end;
+// 	&__submit {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: end;
 
-		.auth__link {
-			margin: $spacing-lg 0;
-		}
-	}
-}
+// 		.auth__link {
+// 			margin: $spacing-lg 0;
+// 		}
+// 	}
+// }

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', "@nuxtjs/sanity"],
+  modules: ['@nuxt/eslint', "@nuxtjs/sanity", "@nuxt/fonts"],
 
   runtimeConfig: {
     public: {
@@ -30,4 +30,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  fonts: {
+    families: [
+      { name: 'Nunito', provider: 'google', weights: ['300', '400', '500', '600', '700', '800', '900'] },
+    ]
+  }
 })

@@ -275,6 +275,7 @@ const _lazy_cnmD2t = () => Promise.resolve().then(function () { return renderer$
 
 const handlers = [
   { route: '/__nuxt_error', handler: _lazy_cnmD2t, lazy: true, middleware: false, method: undefined },
+  { route: '/_fonts/**', handler: _lazy_cnmD2t, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_cnmD2t, lazy: true, middleware: false, method: undefined }
 ];
 
@@ -692,6 +693,14 @@ const _inlineRuntimeConfig = {
     "routeRules": {
       "/__nuxt_error": {
         "cache": false
+      },
+      "/_fonts/**": {
+        "headers": {
+          "cache-control": "public, max-age=31536000, immutable"
+        },
+        "cache": {
+          "maxAge": 31536000
+        }
       },
       "/_nuxt/builds/meta/**": {
         "headers": {
