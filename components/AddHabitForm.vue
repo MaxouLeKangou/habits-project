@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import useTrackingApi from '~/composable/useTrackingApi';
+import useTrackingApi from '~/composables/useTrackingApi';
 
 
 const habits = reactive({
