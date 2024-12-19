@@ -27,7 +27,8 @@
 		<section class="d__list">
 			<div class="d__list__info">
 				<p class="d__list__title">My habits</p>
-				<IconsAdd/>
+
+				<DialogHabit/>
 			</div>
 			<div class="d__list__content">
 				<CardHabit v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
