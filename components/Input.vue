@@ -26,7 +26,7 @@ defineProps({
         required: true,
     },
     type: {
-        type: String as PropType<'text' | 'textarea'>,
+        type: String,
         default: 'text',
     },
     disabled: {

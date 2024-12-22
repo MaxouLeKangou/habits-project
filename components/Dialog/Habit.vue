@@ -1,7 +1,7 @@
 <template>
-    <DialogRoot>
+    <DialogRoot v-model:open="open">
         <DialogTrigger class="dh__button">
-			<IconsAdd/>
+			<slot name="icon"/>
         </DialogTrigger>
         <DialogPortal>
             <DialogOverlay
@@ -31,7 +31,7 @@
 					</fieldset>
 
 					<div class="dh__button">
-						<Button label="Create" type="submit" small/>
+						<Button label="Validate" type="submit" small/>
 					</div>
 				</form>
                 <div class="dh__close">
@@ -60,19 +60,61 @@ const props = defineProps({
 	habit: Object,
 });
 
+const isEditing = ref(false);
+
 const habit = reactive({
 	title: '',
 	description: '',
 });
 
 if(props.habit) {
+	isEditing.value = true;
 	habit.title = props.habit.title;
 	habit.description = props.habit.description;
 }
 
-function onSubmit() {
-	console.log(habit);
+async function onSubmit() {
+	try  {
+		if(isEditing.value === true) {
+			const response = await useAPI(`/habits/${props.habit?.id}`, {
+				method: "PUT",
+				body: {
+					title: habit.title,
+					description: habit.description,
+				},
+				auth: true,
+			});
+
+			if (response.error) {
+				alert(`Error: ${response.message || "An error occurred"}`);
+				return;
+			}
+		} else {
+			const response = await useAPI("/habits", {
+				method: "POST",
+				body: {
+					title: habit.title,
+					description: habit.description,
+				},
+				auth: true,
+			});
+
+			if (response.error) {
+				alert(`Error: ${response.message || "An error occurred"}`);
+				return;
+			}
+		}
+
+		open.value = false;
+		emit('habitRefresh');
+	} catch (error) {
+		console.error(error);
+	}
 }
+
+const open = ref(false);
+
+const emit = defineEmits(['habitRefresh']);
 </script>
 
 <style lang="scss">
@@ -80,7 +122,9 @@ function onSubmit() {
 
 	&__button {
 		background: transparent;
-		border:none;
+		border: none;
+		margin: 0 !important;
+		padding: 0 !important;
 	}
 
 	&__overlay {

@@ -12,13 +12,19 @@
 			</button>
 
 			<div class="h__tag__buttons">
-				<button class="h__tag -orange">
-					<IconsEdit/>
-				</button>
 
+				<DialogHabit :habit="habit" @habitRefresh="refresh()">
+					<template #icon>
+						<button class="h__tag -orange">
+							<IconsEdit/>
+						</button>
+					</template>
+				</DialogHabit>
+				
 				<button class="h__tag -red">
 					<IconsTrash/>
 				</button>
+
 			</div>
 		</div>
 	</section>
@@ -27,7 +33,13 @@
 <script setup lang="ts">
 import type { Habit } from '@/types/Habit';
 
-defineProps<Habit>();
+const props = defineProps<Habit>();
+
+const habit = reactive<Habit>(props);
+
+const { refresh } = useAsyncData('dashboard', async () => {
+	return await useAPI('/dashboard', { method: 'GET' });
+});
 </script>
 
 <style lang="scss">

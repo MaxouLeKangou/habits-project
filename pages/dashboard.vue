@@ -29,7 +29,11 @@
 			<div class="d__list__info">
 				<p class="d__list__title">My habits</p>
 
-				<DialogHabit/>
+				<DialogHabit @habitRefresh="refresh()">
+					<template #icon>
+						<IconsAdd/>
+					</template>
+				</DialogHabit>
 			</div>
 			<div class="d__list__content">
 				<CardHabit v-if="data.personalHabits" v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
@@ -41,18 +45,13 @@
 
 <script setup lang="ts">
 const { data, refresh } = await useAsyncData('dashboard', async () => {
-	return await useTrackingApi('/dashboard', { method: 'GET' });
+	return await useAPI('/dashboard', { method: 'GET' });
 });
 
 // const habit = reactive({
 // 	title: 'Je suis une habitude',
 // 	description: 'Je suis la description de cette habitude',
 // });
-
-
-async function habitsRefresh() {
-	refresh();
-}
 	
 
 </script>
