@@ -13,7 +13,10 @@
                 <DialogTitle class="dh__title">
                     New habit
                 </DialogTitle>
-                <form action="" class="dh__form">
+
+				<DialogDescription/>
+
+                <form action="" class="dh__form" @submit.prevent="onSubmit()">
 					<fieldset>
 						<div class="dh__fieldset">
 							<p>Name of the habit</p>
@@ -26,6 +29,10 @@
 							<Input type="textarea" placeholder="The description of my habit..." full label="Description" v-model="habit.description"/>
 						</div>
 					</fieldset>
+
+					<div class="dh__button">
+						<Button label="Create" type="submit" small/>
+					</div>
 				</form>
                 <div class="dh__close">
                     <DialogClose as-child>
@@ -45,6 +52,7 @@ import {
     DialogPortal,
     DialogRoot,
     DialogTitle,
+	DialogDescription,
     DialogTrigger,
 } from "reka-ui";
 
@@ -60,6 +68,10 @@ const habit = reactive({
 if(props.habit) {
 	habit.title = props.habit.title;
 	habit.description = props.habit.description;
+}
+
+function onSubmit() {
+	console.log(habit);
 }
 </script>
 
@@ -102,13 +114,19 @@ if(props.habit) {
 		display: flex;
 		flex-direction: column;
 		gap: rem(25px);
-		margin: rem(35px) 0;
+		margin-top: rem(30px);
 	}
 
 	&__fieldset {
 		display: flex;
 		flex-direction: column;
 		gap: rem(10px);
+	}
+
+	&__button {
+		margin-top: rem(20px);
+		display: flex;
+		justify-content: flex-end;
 	}
 
 	&__close {

@@ -40,8 +40,6 @@
 </template>
 
 <script setup lang="ts">
-import useTrackingApi from '~/composables/useTrackingApi';
-
 const { data, refresh } = await useAsyncData('dashboard', async () => {
 	return await useTrackingApi('/dashboard', { method: 'GET' });
 });
@@ -52,7 +50,7 @@ const { data, refresh } = await useAsyncData('dashboard', async () => {
 // });
 
 
-async function onHabitCreate() {
+async function habitsRefresh() {
 	refresh();
 }
 	
