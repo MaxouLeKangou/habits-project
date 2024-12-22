@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <form action="" method="post" class="form" @submit.prevent="console.log(account)">
     <fieldset class="form__fieldset">
       <MyInput
@@ -33,7 +33,7 @@
 import { ref, defineProps } from 'vue'
 
 import MyButton from '../MyButton.vue'
-import MyInput from '../MyInput.vue'
+import MyInput from '../Input.vue'
 
 defineProps<{
   type: string
@@ -58,4 +58,4 @@ const account = ref({
     border: none;
   }
 }
-</style>
+</style> -->

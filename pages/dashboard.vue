@@ -46,7 +46,10 @@ const { data, refresh } = await useAsyncData('dashboard', async () => {
 	return await useTrackingApi('/dashboard', { method: 'GET' });
 });
 
-console.log(data);
+// const habit = reactive({
+// 	title: 'Je suis une habitude',
+// 	description: 'Je suis la description de cette habitude',
+// });
 
 
 async function onHabitCreate() {

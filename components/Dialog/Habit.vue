@@ -13,12 +13,20 @@
                 <DialogTitle class="dh__title">
                     New habit
                 </DialogTitle>
-                <fieldset class="mb-[15px] flex items-center gap-5">
-                    <!-- <Input/> -->
-                </fieldset>
-                <fieldset class="mb-[15px] flex items-center gap-5">
-                    <!-- <Input/> -->
-                </fieldset>
+                <form action="" class="dh__form">
+					<fieldset>
+						<div class="dh__fieldset">
+							<p>Name of the habit</p>
+							<Input type="text" placeholder="My habit..." :full=true label="Title" v-model="habit.title"/>
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="dh__fieldset">
+							<p>Description of the habit</p>
+							<Input type="textarea" placeholder="The description of my habit..." full label="Description" v-model="habit.description"/>
+						</div>
+					</fieldset>
+				</form>
                 <div class="dh__close">
                     <DialogClose as-child>
                         <IconsClose/>
@@ -40,10 +48,19 @@ import {
     DialogTrigger,
 } from "reka-ui";
 
+const props = defineProps({
+	habit: Object,
+});
+
 const habit = reactive({
 	title: '',
 	description: '',
 });
+
+if(props.habit) {
+	habit.title = props.habit.title;
+	habit.description = props.habit.description;
+}
 </script>
 
 <style lang="scss">
@@ -79,6 +96,19 @@ const habit = reactive({
 		font-weight: 700;
 		font-size: rem(24px);
 		color: $tertiary-100;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: rem(25px);
+		margin: rem(35px) 0;
+	}
+
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10px);
 	}
 
 	&__close {
