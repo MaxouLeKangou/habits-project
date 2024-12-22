@@ -19,7 +19,8 @@
 			
 			<div class="d__habits__info">
 				<p class="d__habits__title">My Habits</p>
-				<p class="d__habits__content"><span>0</span> of <span>{{ data.personalHabits.length }}</span> complited</p>
+				<p v-if="data.personalHabits" class="d__habits__content"><span>0</span> of <span>{{ data.personalHabits.length }}</span> complited</p>
+				<p class="d__habits__content" v-else>Create your first habit</p>
 			</div>
 		</section>
 
@@ -31,7 +32,8 @@
 				<DialogHabit/>
 			</div>
 			<div class="d__list__content">
-				<CardHabit v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
+				<CardHabit v-if="data.personalHabits" v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
+				<p class="d__list__noresult" v-else>Create your first habit<br/>Use the add button.</p>
 			</div>
 		</section>
 	</main>
@@ -56,6 +58,7 @@ async function onHabitCreate() {
 
 <style lang="scss">
 .d {
+	margin: rem(40px) 0;
 
 	&__header {
 		display: flex;
@@ -139,6 +142,14 @@ async function onHabitCreate() {
 			display: flex;
 			flex-direction: column;
 			gap: rem(10px);
+		}
+
+		&__noresult {
+			flex-grow: 1;
+			font-weight: 300;
+			font-size: rem(20px);
+			text-align: center;
+			margin: rem(60px) 0;
 		}
 	}
 }
