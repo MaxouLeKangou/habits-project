@@ -8,9 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import useTrackingApi from '~/composable/useTrackingApi';
-
-
 const habits = reactive({
 	title: '',
 	description: '',
@@ -20,7 +17,7 @@ const emit = defineEmits(['habit:create']);
 
 async function onSubmit() {
 	try {
-		await useTrackingApi('/habits', { method: 'POST', body: { title: habits.title, description: habits.description } });
+		await useAPI('/habits', { method: 'POST', body: { title: habits.title, description: habits.description } });
 
 		emit('habit:create');
 
