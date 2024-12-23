@@ -19,8 +19,8 @@
 			
 			<div class="d__habits__info">
 				<p class="d__habits__title">My Habits</p>
-				<p v-if="data.personalHabits" class="d__habits__content"><span>0</span> of <span>{{ data.personalHabits.length }}</span> complited</p>
-				<p class="d__habits__content" v-else>Create your first habit</p>
+				<p v-if="data.personalHabits && data.personalHabits.length > 0" class="d__habits__content"><span>0</span> of <span>{{ data.personalHabits.length }}</span> complited</p>
+				<p v-else class="d__habits__content">Create your first habit</p>
 			</div>
 		</section>
 
@@ -36,8 +36,8 @@
 				</DialogHabit>
 			</div>
 			<div class="d__list__content">
-				<CardHabit v-if="data.personalHabits" v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
-				<p class="d__list__noresult" v-else>Create your first habit<br/>Use the add button.</p>
+				<CardHabit v-if="data.personalHabits && data.personalHabits.length > 0" v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
+				<p v-else class="d__list__noresult">Create your first habit<br/>Use the add button.</p>
 			</div>
 		</section>
 	</main>

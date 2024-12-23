@@ -6,7 +6,7 @@
 		</div>
 
 		<div class="h__tag__buttons">
-			<button class="h__tag -green">
+			<button class="h__tag">
 				<IconsCheck/>
 				<span>0</span>
 			</button>
@@ -15,15 +15,15 @@
 
 				<DialogHabit :habit="habit" @habitRefresh="refresh()">
 					<template #icon>
-						<button class="h__tag -orange">
-							<IconsEdit/>
-						</button>
+						<IconsEdit class="h__tag -orange"/>
 					</template>
 				</DialogHabit>
-				
-				<button class="h__tag -red">
-					<IconsTrash/>
-				</button>
+
+				<DialogAlert @delete="onDelete()">
+					<template #icon>
+						<IconsTrash class="h__tag -red"/>
+					</template>
+				</DialogAlert>
 
 			</div>
 		</div>
@@ -35,11 +35,30 @@ import type { Habit } from '@/types/Habit';
 
 const props = defineProps<Habit>();
 
+console.log(props);
+
 const habit = reactive<Habit>(props);
 
 const { refresh } = useAsyncData('dashboard', async () => {
 	return await useAPI('/dashboard', { method: 'GET' });
 });
+
+async function onDelete() {
+	try  {
+		const response = await useAPI(`/habits/${habit.id}`, {
+			method: "DELETE",
+		});
+
+		if (response.error) {
+			alert(`Error: ${response.message || "An error occurred"}`);
+			return;
+		}
+
+		refresh();
+	} catch (error) {
+		console.error(error);
+	}
+}
 </script>
 
 <style lang="scss">
@@ -73,6 +92,7 @@ const { refresh } = useAsyncData('dashboard', async () => {
 		display: flex;
 		align-items: center;
 		gap: rem(5px);
+		color: $light-200;
 
 		font-size: rem(14px);
 

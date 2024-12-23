@@ -1,6 +1,6 @@
 <template>
     <DialogRoot v-model:open="open">
-        <DialogTrigger class="dh__button">
+        <DialogTrigger class="dh__icon">
 			<slot name="icon"/>
         </DialogTrigger>
         <DialogPortal>
@@ -20,7 +20,7 @@
 					<fieldset>
 						<div class="dh__fieldset">
 							<p>Name of the habit</p>
-							<Input type="text" placeholder="My habit..." :full=true label="Title" v-model="habit.title"/>
+							<Input type="text" placeholder="My habit..." full label="Title" v-model="habit.title"/>
 						</div>
 					</fieldset>
 					<fieldset>
@@ -120,10 +120,9 @@ const emit = defineEmits(['habitRefresh']);
 <style lang="scss">
 .dh {
 
-	&__button {
+	&__icon {
 		background: transparent;
 		border: none;
-		margin: 0 !important;
 		padding: 0 !important;
 	}
 
