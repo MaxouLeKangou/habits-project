@@ -29,15 +29,15 @@
 			<div class="d__list__info">
 				<p class="d__list__title">My habits</p>
 
-				<DialogHabit @habitRefresh="refresh()">
+				<DialogHabit @habit-refresh="refresh()">
 					<template #icon>
 						<IconsAdd/>
 					</template>
 				</DialogHabit>
 			</div>
 			<div class="d__list__content">
-				<CardHabit v-if="data.personalHabits && data.personalHabits.length > 0" v-for="habit in data.personalHabits" :key="habit.id" v-bind="habit" />
-				<p v-else class="d__list__noresult">Create your first habit<br/>Use the add button.</p>
+				<CardHabit v-for="habit in data.personalHabits" v-if="data.personalHabits && data.personalHabits.length > 0" :key="habit.id" v-bind="habit" />
+				<p v-else class="d__list__noresult">Create your first habit<br>Use the add button.</p>
 			</div>
 		</section>
 	</main>

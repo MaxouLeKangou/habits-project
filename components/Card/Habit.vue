@@ -13,7 +13,7 @@
 
 			<div class="h__tag__buttons">
 
-				<DialogHabit :habit="habit" @habitRefresh="refresh()">
+				<DialogHabit :habit="habit" @habit-refresh="refresh()">
 					<template #icon>
 						<IconsEdit class="h__tag -orange"/>
 					</template>

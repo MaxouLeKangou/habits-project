@@ -20,13 +20,13 @@
 					<fieldset>
 						<div class="dh__fieldset">
 							<p>Name of the habit</p>
-							<Input type="text" placeholder="My habit..." full label="Title" v-model="habit.title"/>
+							<Input v-model="data.title" type="text" placeholder="My habit..." full label="Title"/>
 						</div>
 					</fieldset>
 					<fieldset>
 						<div class="dh__fieldset">
 							<p>Description of the habit</p>
-							<Input type="textarea" placeholder="The description of my habit..." full label="Description" v-model="habit.description"/>
+							<Input v-model="data.description" type="textarea" placeholder="The description of my habit..." full label="Description"/>
 						</div>
 					</fieldset>
 
@@ -57,20 +57,23 @@ import {
 } from "reka-ui";
 
 const props = defineProps({
-	habit: Object,
+	habit: {
+		type: Object,
+		default: null,
+	},
 });
 
 const isEditing = ref(false);
 
-const habit = reactive({
+const data = reactive({
 	title: '',
 	description: '',
 });
 
 if(props.habit) {
 	isEditing.value = true;
-	habit.title = props.habit.title;
-	habit.description = props.habit.description;
+	data.title = props.habit.title;
+	data.description = props.habit.description;
 }
 
 async function onSubmit() {
@@ -79,8 +82,8 @@ async function onSubmit() {
 			const response = await useAPI(`/habits/${props.habit?.id}`, {
 				method: "PUT",
 				body: {
-					title: habit.title,
-					description: habit.description,
+					title: data.title,
+					description: data.description,
 				},
 				auth: true,
 			});
@@ -93,8 +96,8 @@ async function onSubmit() {
 			const response = await useAPI("/habits", {
 				method: "POST",
 				body: {
-					title: habit.title,
-					description: habit.description,
+					title: data.title,
+					description: data.description,
 				},
 				auth: true,
 			});

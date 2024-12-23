@@ -16,7 +16,7 @@
                     <AlertDialogCancel class="da__button -outline">
                         Cancel
                     </AlertDialogCancel>
-                    <AlertDialogAction @click="onDelete()" class="da__button -red">
+                    <AlertDialogAction class="da__button -red" @click="onDelete()">
                         Delete
                     </AlertDialogAction>
                 </div>

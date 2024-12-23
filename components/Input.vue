@@ -1,7 +1,8 @@
 <template>
     <div>
         <label :for="label" class="input__label">{{ label }}</label>
-        <component :is="type === 'textarea' ? 'textarea' : 'input'" :id="label" :type="type" :placeholder="placeholder" :disabled="disabled"
+        <component
+:is="type === 'textarea' ? 'textarea' : 'input'" :id="label" :type="type" :placeholder="placeholder" :disabled="disabled"
             rows="4"
             class="input"
             :value="modelValue"

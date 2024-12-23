@@ -1,5 +1,6 @@
 <template>
-    <component :is="typeComponent" :to="props.type === 'NuxtLink' ? link : undefined" class="button" :class="{
+    <component
+:is="typeComponent" :to="props.type === 'NuxtLink' ? link : undefined" class="button" :class="{
         '-outline': variant === 'outline',
         '-full': full,
         '-small': small,
