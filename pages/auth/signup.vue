@@ -1,5 +1,7 @@
 <template>
-	<main class="auth">
+	<main class="container auth">
+		<h2 class="auth__title">Hey, Welcome</h2>
+		<p class="auth__description">is the place you were supose to be if you want to track your habits!</p>
 		<form method="post" class="auth__form" @submit.prevent="onSubmit()">
 			<fieldset class="auth__fieldset">
 				<Input v-model="account.username" placeholder="Nom d'utilisateur" type="username" label="Username" full class="auth__input" />
@@ -7,9 +9,8 @@
 				<Input v-model="account.confirmPassword" placeholder="Confirmation du mot de passe" type="password" label="Confirm Password" full class="auth__input" />
 			</fieldset>
 			<div class="auth__submit">
-				<p class="auth__terms">En continuant, vous acceptez nos <NuxtLink to="" class="auth__link -end">Conditions d'utilisations</NuxtLink> ainsi que notre <NuxtLink to="" class="auth__link">Charte de confidentialité</NuxtLink> !</p>
-				<Button type="submit" label="Créer un compte" full class="auth__button" />
-				<nuxt-link to="/auth/signin" class="auth__link -center">Déjà un compte ?</nuxt-link>
+				<Button type="submit" label="Create account" full class="auth__button" />
+				<nuxt-link to="/auth/signin" class="auth__link -center">You already have account?</nuxt-link>
 			</div>
 		</form>
 	</main>
@@ -23,37 +24,29 @@ const account = reactive({
 });
 
 async function onSubmit() {
-	try {
+	try  {
 		if (account.password !== account.confirmPassword) {
 			alert("Les mots de passe ne correspondent pas.");
 			return;
 		}
 
-		const response = await fetch('http://localhost:4000/auth/register', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
+		const response = await useAPI(`/auth/register`, {
+			method: "POST",
+			body: {
 				username: account.username,
 				password: account.password,
-			}),
+			},
+			auth: false,
 		});
 
-		if (response.ok) {
-			const data = await response.json();
-			const cookieJwt =  useCookie('api_tracking_jwt');
-			cookieJwt.value = data.token;
-			
-			navigateTo('/dashboard');
-		} else {
-			const errorData = await response.json();
-			console.error('Erreur lors de l’inscription :', errorData);
-			alert(`Erreur : ${errorData.message || 'Un problème est survenu.'}`);
+		if (response.error) {
+			alert(`Error: ${response.message || "An error occurred"}`);
+			return;
 		}
+
+		navigateTo('/dashboard');
 	} catch (error) {
-		console.error('Erreur réseau ou serveur :', error);
-		alert('Impossible de se connecter au serveur.');
+		console.error(error);
 	}
 }
 </script>

@@ -1,15 +1,18 @@
 <template>
-	<main class="auth">
+	<main class="container auth">
+		<h2 class="auth__title">Welcome back</h2>
+		<p class="auth__description">is the place you were supose to be if you want to track your habits!</p>
 		<form method="post" class="auth__form" @submit.prevent="onSubmit">
-			<fieldset class="auth__fieldset">
-				<Input v-model="account.username" placeholder="Nom d'utilisateur" type="username" label="Username" full class="auth__input" />
-				<Input v-model="account.password" placeholder="Mot de passe" type="password" label="Password" full class="auth__input" />
-				<nuxt-link to="" class="auth__link -end">Mot de passe oublié ?</nuxt-link>
+			<fieldset>
+				<div class="auth__fieldset">
+					<Input v-model="account.username" placeholder="Username" type="username" label="Username" full class="auth__input" />
+					<Input v-model="account.password" placeholder="Password" type="password" label="Password" full class="auth__input" />
+					<NuxtLink to="" class="auth__link -end">forgot password?</NuxtLink>
+				</div>
 			</fieldset>
 			<div class="auth__submit">
-				<p class="auth__terms">En continuant, vous acceptez nos <NuxtLink to="" class="auth__link -end">Conditions d'utilisations</NuxtLink> ainsi que notre <NuxtLink to="" class="auth__link">Charte de confidentialité</NuxtLink> !</p>
-				<Button type="submit" label="Se connecter" full class="auth__button" />
-				<nuxt-link to="/auth/signup" class="auth__link -center">Vous n'avez pas de compte ?</nuxt-link>
+				<Button type="submit" label="Connection" full class="auth__button" />
+				<NuxtLink to="/auth/signup" class="auth__link -center">You are new? Create account</NuxtLink>
 			</div>
 		</form>
 	</main>
@@ -21,39 +24,73 @@ const account = reactive({
 	password: ''
 });
 
-
 async function onSubmit() {
-	try {
-		if (!account.username || !account.password) {
-			alert("Tous les champs doivent être remplis.");
+	try  {
+		const response = await useAPI(`/auth/login`, {
+			method: "POST",
+			body: {
+				username: account.username,
+				password: account.password,
+			},
+			auth: false,
+		});
+
+		if (response.error) {
+			alert(`Error: ${response.message || "An error occurred"}`);
 			return;
 		}
 
-		const response = await fetch('http://localhost:4000/auth/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				username: account.username,
-				password: account.password,
-			}),
-		});
-
-		if (response.ok) {
-			const data = await response.json();
-			const cookieJwt =  useCookie('api_tracking_jwt');
-			cookieJwt.value = data.token;
-			
-			navigateTo('/dashboard');
-		} else {
-			const errorData = await response.json();
-			console.error('Erreur de connexion :', errorData);
-			alert(`Erreur : ${errorData.message || 'Identifiants incorrects.'}`);
-		}
+		navigateTo('/dashboard');
 	} catch (error) {
-		console.error('Erreur réseau ou serveur :', error);
-		alert('Impossible de se connecter au serveur.');
+		console.error(error);
 	}
 }
 </script>
+
+<style lang="scss">
+.auth {
+	min-height: 100vh;
+
+	&__title {
+		font-size: rem(32px);
+		font-weight: 700;
+		margin-bottom: rem(10px);
+		text-align: center;
+	}
+
+	&__description {
+		color: $light-200;
+		margin-bottom: rem(80px);
+		text-align: center;
+	}
+
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20px);
+	}
+
+	&__link {
+		display: block;
+		text-decoration: none;
+		color: $light-200;
+		width: 100%;
+
+		&.-end {
+			text-align: right;
+		}
+
+		&.-center {
+			text-align: center;
+		}
+	}
+
+	&__submit {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20px);
+		margin-top: rem(60px);
+	}
+
+}
+</style>
