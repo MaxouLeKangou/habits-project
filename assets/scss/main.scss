@@ -1,13 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
-  font-family: 'Nunito', sans-serif;
-  background-color: $dark-100;
-  color: $light-100;
+    font-family: 'Nunito', sans-serif;
+    background-color: $dark-100;
+    color: $light-100;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 rem(20px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: rem(40px) rem(20px);
 }
 
 // AUTH

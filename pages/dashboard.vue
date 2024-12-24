@@ -58,7 +58,6 @@ const { data, refresh } = await useAsyncData('dashboard', async () => {
 
 <style lang="scss">
 .d {
-	margin: rem(40px) 0;
 
 	&__header {
 		display: flex;

@@ -15,13 +15,17 @@
 
 				<DialogHabit :habit="habit" @habit-refresh="refresh()">
 					<template #icon>
-						<IconsEdit class="h__tag -orange"/>
+						<p class="h__tag -orange">
+							<IconsEdit/>
+						</p>
 					</template>
 				</DialogHabit>
 
 				<DialogAlert @delete="onDelete()">
 					<template #icon>
-						<IconsTrash class="h__tag -red"/>
+						<p class="h__tag -red">
+							<IconsTrash/>
+						</p>
 					</template>
 				</DialogAlert>
 

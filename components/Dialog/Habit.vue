@@ -141,7 +141,7 @@ const emit = defineEmits(['habitRefresh']);
 		top: 50%;
 		left: 50%;
 		max-height: 85vh;
-		width: 70vw;
+		width: 85vw;
 		max-width: rem(450px);
 		transform: translate(-50%, -50%);
 		border-radius: rem(20px);

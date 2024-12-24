@@ -59,7 +59,7 @@ defineEmits(['update:modelValue'])
     font-size: rem(14px);
     outline: transparent;
     border: 1px solid $dark-300;
-    padding: rem(12px) rem(20px);
+    padding: rem(15px) rem(20px);
     border-radius: rem(8px);
     transition: all 0.3s;
     box-sizing: border-box;

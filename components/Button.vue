@@ -61,6 +61,7 @@ const typeComponent = (() => {
     padding: rem(20px) rem(40px);
     border: none;
     font-size: rem(14px);
+    font-weight: 700;
     border-radius: rem(100px);
     text-decoration: none;
     cursor: pointer;
