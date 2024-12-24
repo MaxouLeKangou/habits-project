@@ -39,6 +39,8 @@ async function onSubmit() {
 			alert(`Error: ${response.message || "An error occurred"}`);
 			return;
 		}
+
+		navigateTo('/dashboard');
 	} catch (error) {
 		console.error(error);
 	}
