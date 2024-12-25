@@ -3,7 +3,7 @@
 		<h1 class="hero__title">{{ title }}</h1>
 		<p class="hero__text">{{ text }}</p>
 		<div class="hero__links">
-			<MyButton v-for="link of links" :key="link._key" type="NuxtLink" :link="link.url" :label="link.label"/>
+			<!-- <MyButton v-for="link of links" :key="link._key" type="NuxtLink" :link="link.url" :label="link.label"/> -->
 		</div>
 	</div>
 </template>

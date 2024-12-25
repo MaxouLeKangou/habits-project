@@ -1,5 +1,5 @@
 <template>
-	<main class="container d">
+	<main class="d">
 		<header class="d__header">
 			<div class="d__user">
 				<p class="d__title">Hello</p>

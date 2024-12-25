@@ -1,5 +1,5 @@
 <template>
-	<div class="l-default">
+	<div class="container l-default">
 		<Header/>
 		<slot/>
 	</div>
