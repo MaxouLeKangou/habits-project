@@ -1,5 +1,5 @@
 <template>
-	<main class="d">
+	<main class="container d">
 		<header class="d__header">
 			<div class="d__user">
 				<p class="d__title">Hello</p>
@@ -44,6 +44,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+	layout: false,
+})
+
 const { data, refresh } = await useAsyncData('dashboard', async () => {
 	return await useAPI('/dashboard', { method: 'GET' });
 });

@@ -1,6 +1,8 @@
 <template>
 	<header class="header">
-		<Logo/>
+		<NuxtLink to="/">
+			<Logo/>
+		</NuxtLink>
 		
 		<button>
 			<IconsHamburger/>
@@ -13,6 +15,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 1rem 0;
 	
 	button {
 		background: none;
