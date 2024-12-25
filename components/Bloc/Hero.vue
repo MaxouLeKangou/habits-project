@@ -14,8 +14,6 @@ const props = defineProps<{
 	text: string
 	button: { url: string, text: string }
 }>()
-
-console.log(props)
 </script>
 
 <style lang="scss">

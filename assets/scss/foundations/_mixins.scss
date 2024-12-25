@@ -1,25 +1,42 @@
 @use './functions' as *;
 
+$breakpoints: (
+    small: 450px,
+    medium: 700px,
+    large: 1024px,
+    xlarge: 1200px,
+    xxlarge: 1440px
+);
+
 @mixin font-size($size, $line-height: 'auto') {
-  font-size: rem($size);
-  @if $line-height != 'auto' {
-    line-height: $line-height;
-  }
+    font-size: rem($size);
+
+    @if $line-height !='auto' {
+        line-height: $line-height;
+    }
 }
 
 @mixin sr-only() {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
-@mixin flex-column($gap: 0) {
-  display: flex;
-  flex-direction: column;
-  gap: rem($gap);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type ==max {
+            $width: $width - 0.02px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
 }
