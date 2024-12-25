@@ -3,39 +3,42 @@
 		<h1 class="hero__title">{{ title }}</h1>
 		<p class="hero__text">{{ text }}</p>
 		<div class="hero__links">
-			<!-- <MyButton v-for="link of links" :key="link._key" type="NuxtLink" :link="link.url" :label="link.label"/> -->
+			<Button type="NuxtLink" :link="button.url" :label="button.text"/>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
 	title: string
 	text: string
-	links: { _key: string, url: string, label: string }[]
+	button: { url: string, text: string }
 }>()
+
+console.log(props)
 </script>
 
 <style lang="scss">
-// .hero {
-// 	padding: 0 rem(20px);
-// 	min-height: 80vh;
-// 	background-color: rgba($primary-base, 0.1);
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: center;
-// 	gap: rem(10px);
+.hero {
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 
-// 	&__title {
-// 		font-size: rem(36px);
-// 		font-weight: 700;
-// 		margin: 0;
-// 	}
+	&__title {
+		font-size: rem(32px);
+		font-weight: 700;
+		margin: 0;
+	}
+	&__text {
+		font-size: rem(14px);
+	}
 
-// 	&__links {
-// 		margin-top: rem(40px);
-// 		display: flex;
-// 		gap: rem(20px);
-// 	}
-// }
+	&__links {
+		margin-top: rem(30px);
+		display: flex;
+		justify-content: center;
+	}
+}
 </style>
