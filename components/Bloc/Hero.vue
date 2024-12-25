@@ -22,15 +22,57 @@ const props = defineProps<{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	gap: rem(10px);
 	text-align: center;
+	margin: 0 auto;
+
+	@include mq('small') {
+		max-width: rem(420px);
+	}
+
+	@include mq('medium') {
+		max-width: rem(600px);
+	}
+
+	@include mq('large') {
+		max-width: rem(800px);
+	}
+	
 
 	&__title {
 		font-size: rem(32px);
 		font-weight: 700;
 		margin: 0;
+
+		@include mq('small') {
+			font-size: rem(42px);
+		}
+
+		@include mq('medium') {
+			font-size: rem(60px);
+		}
+
+		@include mq('large') {
+			font-size: rem(80px);
+		}
 	}
 	&__text {
 		font-size: rem(14px);
+		margin: 0 auto;
+
+		@include mq('small') {
+			font-size: rem(18px);
+		}
+
+		@include mq('medium') {
+			font-size: rem(20px);
+			max-width: rem(420px);
+		}
+
+		@include mq('large') {
+			font-size: rem(24px);
+			max-width: rem(600px);
+		}
 	}
 
 	&__links {

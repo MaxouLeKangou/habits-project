@@ -51,16 +51,33 @@ defineProps<{
 	&__content {
 		display: flex;
 		flex-direction: column;
+		gap: rem(5px);
 	}
 
 	&__value {
 		font-size: rem(18px);
 		font-weight: 700;
 		margin: 0;
+
+		@include mq('medium') {
+			font-size: rem(20px);
+		}
+
+		@include mq('large') {
+			font-size: rem(22px);
+		}
 	}
 
 	&__text {
 		font-size: rem(12px);
+
+		@include mq('medium') {
+			font-size: rem(14px);
+		}
+
+		@include mq('large') {
+			font-size: rem(16px);
+		}
 	}
 }
 

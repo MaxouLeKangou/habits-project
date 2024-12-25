@@ -11,10 +11,12 @@
 
 			<section v-if="homepage.features" class="homepage__features">
 				<div class="homepage__content">
-					<h2 class="feature__title">{{ homepage.features.title }}</h2>
-					<p class="feature__text">{{ homepage.features.text }}</p>
+					<h2 class="homepage__subtitle">{{ homepage.features.title }}</h2>
+					<p class="homepage__subtext">{{ homepage.features.text }}</p>
 				</div>
-				<CardFeature v-for="(data, index) of homepage.features.table_features" :key="data._key" v-bind="data" :class="color(index)"/>
+				<div class="homepage__grid">
+					<CardFeature v-for="(data, index) of homepage.features.table_features" :key="data._key" v-bind="data" :class="color(index)"/>
+				</div>
 			</section>
 
 			<section v-if="homepage.reviews" class="homepage__review">
@@ -61,15 +63,42 @@ const color = (index: number): string => {
 		gap: rem(25px);
 	}
 
-	.feature {
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(25px);
 
-		&__title {
-			font-size: rem(28px);
-			font-weight: 700;
+		@include mq('medium') {
+			grid-template-columns: 1fr 1fr;
 		}
 
-		&__text {
-			font-size: rem(14px);
+		@include mq('large') {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+	&__subtitle {
+		font-size: rem(28px);
+		font-weight: 700;
+
+		@include mq('medium') {
+			font-size: rem(34px);
+		}
+
+		@include mq('large') {
+			font-size: rem(42px);
+		}
+	}
+
+	&__subtext {
+		font-size: rem(14px);
+
+		@include mq('medium') {
+			font-size: rem(16px);
+		}
+
+		@include mq('large') {
+			font-size: rem(20px);
 		}
 	}
 }

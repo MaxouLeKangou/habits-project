@@ -1,8 +1,8 @@
 <template>
-	<div class="b-stat">
+	<!-- <div class="b-stat">
 		<p class="b-stat__value">{{ value }}</p>
 		<p class="b-stat__text">{{ text }}</p>
-	</div>
+	</div> -->
 </template>
 
 <script setup lang="ts">
