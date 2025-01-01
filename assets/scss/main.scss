@@ -17,6 +17,11 @@ html {
 .auth {
 	min-height: 100vh;
 
+	&__form {
+		max-width: rem(500px);
+		margin: 0 auto;
+	}
+
 	&__title {
 		font-size: rem(32px);
 		font-weight: 700;

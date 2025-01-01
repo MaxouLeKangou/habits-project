@@ -67,6 +67,10 @@ const typeComponent = (() => {
     cursor: pointer;
     transition: background 0.3s;
 
+    @include mq('medium') {
+        font-size: rem(16px);
+    }
+
     // &.-outline {
     //     background: transparent;
     //     color: $primary-base;

@@ -44,6 +44,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+	layout: false,
+})
+
 const { data, refresh } = await useAsyncData('dashboard', async () => {
 	return await useAPI('/dashboard', { method: 'GET' });
 });
