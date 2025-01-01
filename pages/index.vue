@@ -19,9 +19,13 @@
 				</div>
 			</section>
 
-			<section v-if="homepage.reviews" class="homepage__review">
-				<CardReview v-for="data of homepage.reviews.reviews" :key="data._key" v-bind="homepage.review"/>
+			<section v-if="homepage.datas" class="homepage_datas">
+				<CardData v-for="data of homepage.datas.table_datas" :key="data._key" v-bind="data"/>
 			</section>
+
+			<!-- <section v-if="homepage.reviews" class="homepage__review">
+				<CardReview v-for="data of homepage.reviews.reviews" :key="data._key" v-bind="homepage.review"/>
+			</section> -->
 		</div>
 	</main>
 </template>
@@ -47,6 +51,14 @@ const color = (index: number): string => {
 		display: flex;
 		flex-direction: column;
 		gap: rem(100px);
+
+		@include mq('medium') {
+			gap: rem(150px);
+		}
+
+		@include mq('large') {
+			gap: rem(200px);
+		}
 	}
 
 	&__content {
