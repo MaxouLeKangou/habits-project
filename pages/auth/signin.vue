@@ -3,13 +3,11 @@
 		<h2 class="auth__title">Welcome back</h2>
 		<p class="auth__description">is the place you were supose to be if you want to track your habits!</p>
 		<form method="post" class="auth__form" @submit.prevent="onSubmit">
-			<fieldset>
-				<div class="auth__fieldset">
-					<Input v-model="account.username" placeholder="Username" type="username" label="Username" full class="auth__input" />
-					<Input v-model="account.password" placeholder="Password" type="password" label="Password" full class="auth__input" />
-					<NuxtLink to="" class="auth__link -end">forgot password?</NuxtLink>
-				</div>
-			</fieldset>
+			<div class="auth__fieldset">
+				<Input v-model="account.username" placeholder="Username" type="username" label="Username" full class="auth__input" />
+				<Input v-model="account.password" placeholder="Password" type="password" label="Password" full class="auth__input" />
+				<NuxtLink to="" class="auth__link -end">forgot password?</NuxtLink>
+			</div>
 			<div class="auth__submit">
 				<Button type="submit" label="Connection" full class="auth__button" />
 				<NuxtLink to="/auth/signup" class="auth__link -center">You are new? Create account</NuxtLink>
