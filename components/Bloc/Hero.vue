@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
 	title: string
 	text: string
 	button: { url: string, text: string }
