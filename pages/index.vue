@@ -23,6 +23,19 @@
 				<CardData v-for="data of homepage.datas.table_datas" :key="data._key" v-bind="data"/>
 			</section>
 
+			<section v-if="homepage.prices" class="homepage__prices">
+				<div class="homepage__content">
+					<h2 class="homepage__subtitle">{{ homepage.prices.title }}</h2>
+					<p class="homepage__subtext">{{ homepage.prices.text }}</p>
+				</div>
+				<div class="homepage__switch">
+					<div class="homepage__price__select">
+						<span class="homepage__price__span" v-for="(data, index) of homepage.prices.table_prices" @click="price = index" :class="{ '-pSelect': price === index }">{{ data.title }}</span>
+					</div>
+				</div>
+				<CardPrice v-bind="homepage.prices.table_prices[price]"/>
+			</section>
+
 			<!-- <section v-if="homepage.reviews" class="homepage__review">
 				<CardReview v-for="data of homepage.reviews.reviews" :key="data._key" v-bind="homepage.review"/>
 			</section> -->
@@ -37,6 +50,8 @@ const { data: homepage } = await useSanityQuery<SanityDocument>(groq`*[
 	_type == "homepage"][0]`);
 
 console.log(homepage)
+
+const price = ref(0);
 
 const color = (index: number): string => {
 	const colors = ["color-1", "color-2", "color-3"];
@@ -63,6 +78,7 @@ const color = (index: number): string => {
 
 	&__content {
 		display: flex;
+		text-align: center;
 		flex-direction: column;
 		gap: rem(10px);
 		margin-bottom: rem(50px);
@@ -73,6 +89,32 @@ const color = (index: number): string => {
 		flex-direction: column;
 		text-align: center;
 		gap: rem(25px);
+	}
+
+	&__switch {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__price__span {
+		border-radius: rem(50px);
+		padding: rem(8px) rem(16px);
+		font-size: rem(14px);
+		cursor: pointer;
+	}
+
+	&__price__select {
+		display: inline-flex;
+		gap: rem(5px);
+		padding: rem(5px);
+		border-radius: rem(50px);
+		border: rem(1px) solid $dark-300;
+		margin-bottom: rem(40px);
+
+		.-pSelect {
+			background-color: $light-100;
+			color: $dark-100
+		}
 	}
 
 	&__grid {

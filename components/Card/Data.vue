@@ -1,12 +1,12 @@
 <template>
 	<div class="data">
-		<div class="data__image">
-			<SanityImage :asset-id="image.asset._ref" />
-		</div>
-
 		<div class="data__content">
 			<p class="data__value">{{ value }}</p>
 			<p class="data__text">{{ text }}</p>
+		</div>
+
+		<div class="data__image">
+			<SanityImage :asset-id="image.asset._ref" />
 		</div>
 	</div>
 </template>
