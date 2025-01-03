@@ -30,7 +30,7 @@
 				</div>
 				<div class="homepage__switch">
 					<div class="homepage__price__select">
-						<span class="homepage__price__span" v-for="(data, index) of homepage.prices.table_prices" @click="price = index" :class="{ '-pSelect': price === index }">{{ data.title }}</span>
+						<span class="homepage__price__span" v-for="(data, index) of homepage.prices.table_prices" :key="data._key" @click="price = index" :class="{ '-pSelect': price === index }">{{ data.title }}</span>
 					</div>
 				</div>
 				<CardPrice v-bind="homepage.prices.table_prices[price]"/>
