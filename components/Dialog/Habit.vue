@@ -108,6 +108,9 @@ async function onSubmit() {
 			}
 		}
 
+
+		data.title = '';
+		data.description = '';
 		open.value = false;
 		emit('habitRefresh');
 	} catch (error) {

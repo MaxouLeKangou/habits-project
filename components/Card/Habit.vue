@@ -39,8 +39,6 @@ import type { Habit } from '@/types/Habit';
 
 const props = defineProps<Habit>();
 
-console.log(props);
-
 const habit = reactive<Habit>(props);
 
 const { refresh } = useAsyncData('dashboard', async () => {
