@@ -44,6 +44,9 @@ async function onSubmit() {
 			return;
 		}
 
+		const cookieJwt = useCookie('api_tracking_jwt');
+		cookieJwt.value = response.token;
+
 		navigateTo('/dashboard');
 	} catch (error) {
 		console.error(error);

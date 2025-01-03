@@ -1,17 +1,5 @@
 <template>
 	<main class="container d">
-		<header class="d__header">
-			<div class="d__user">
-				<p class="d__title">Hello</p>
-				<span class="d__name">Maxime</span>
-			</div>
-
-			<div>
-				img
-			</div>
-		</header>
-
-
 		<section class="d__habits">
 			<div class="d__habits__graph">
 				<span>0%</span>
@@ -44,10 +32,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-	layout: false,
-})
-
 const { data, refresh } = await useAsyncData('dashboard', async () => {
 	return await useAPI('/dashboard', { method: 'GET' });
 });
@@ -129,6 +113,7 @@ const { data, refresh } = await useAsyncData('dashboard', async () => {
 
 
 	&__list {
+
 		&__info {
 			display: flex;
 			justify-content: space-between;
@@ -142,17 +127,34 @@ const { data, refresh } = await useAsyncData('dashboard', async () => {
 		}
 
 		&__content {
-			display: flex;
-			flex-direction: column;
+			display: grid;
+			grid-template-columns: 1fr;
 			gap: rem(10px);
+
+			@include mq('small') {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			@include mq('large') {
+				grid-template-columns: 1fr 1fr 1fr;
+			}
 		}
 
 		&__noresult {
-			flex-grow: 1;
 			font-weight: 300;
 			font-size: rem(20px);
 			text-align: center;
 			margin: rem(60px) 0;
+
+			@include mq('small') {
+				grid-column-start: 0;
+				grid-column-end: 2;
+			}
+
+			@include mq('large') {
+				grid-column-start: 0;
+				grid-column-end: 3;
+			}
 		}
 	}
 }
